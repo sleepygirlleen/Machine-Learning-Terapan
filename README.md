@@ -55,17 +55,31 @@ Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubu
 - extracurricular_participation: Apakah siswa berpartisipasi dalam kegiatan ekstrakurikuler (Yes atau No).
 - exam_score: Skor ujian akhir siswa.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+### Exploratory Data Analysis
+#### Mental Health Rating
+![image](https://github.com/user-attachments/assets/ef905ea9-4e30-4499-b980-ec942d60756c)
+Terlihat tren positif yang jelas antara peningkatan mental health rating dengan peningkatan nilai ujian. Semakin tinggi rating kesehatan mental (dari 1 hingga 10), semakin tinggi pula nilai ujian (dari ~62.76 hingga ~77.73). Hal ini menunjukkan bahwa kesehatan mental yang baik mungkin berkontribusi terhadap performa akademik yang lebih baik.
+#### Durasi Tidur
+![image](https://github.com/user-attachments/assets/c9aab104-0633-4515-b7c9-0d0bb2b9b9d1)
+Nilai ujian tertinggi ditemukan pada kelompok dengan durasi tidur 7-8 jam (~71.41), diikuti oleh kelompok 9+ jam (~69.86) dan 5-6 jam (~68.76). Kelompok dengan tidur kurang dari 5 jam memiliki nilai terendah (~63.45). Pola ini menunjukkan bahwa tidur yang cukup (7-8 jam) berhubungan dengan performa akademik optimal, sementara tidur terlalu sedikit atau terlalu banyak mungkin kurang ideal.
+#### Waktu Belajar
+![image](https://github.com/user-attachments/assets/29e727b7-d244-47a1-90a5-c6591ea30437)
+Terdapat korelasi positif yang kuat antara peningkatan waktu belajar dan nilai ujian. Kelompok yang belajar 5-8 jam memiliki nilai tertinggi (~90.37), sementara yang belajar kurang dari 1 jam memiliki nilai terendah (~40.81-41.03). Namun, data untuk kelompok belajar lebih dari 8 jam tidak tersedia (Null), sehingga tidak dapat dianalisis lebih lanjut.
+#### Frekuensi Olahraga
+![image](https://github.com/user-attachments/assets/e5f13170-d403-4bdd-af49-2d08d2023bff)
+Meskipun tidak sekuat faktor lainnya, terdapat sedikit tren positif antara frekuensi olahraga dan nilai ujian. Nilai tertinggi ditemukan pada kelompok yang berolahraga 6 kali seminggu (~74.40), sementara yang tidak berolahraga (0 kali) memiliki nilai lebih rendah (~66.38). Namun, pola ini tidak sepenuhnya konsisten, menunjukkan bahwa olahraga mungkin bukan faktor dominan.
 
 ## Data Preparation
 ### Tahapan:
 1. Data Cleaning: Beberapa fitur yang kurang relevan atau tidak berkontribusi secara signifikan terhadap fokus analisis, seperti student_id, social_media_hours, netflix_hours, part_time_job, parental_education_level, extracurricular_participation, internet_quality, dan diet_quality, telah dihapus dari dataset untuk menyederhanakan pemodelan dan mengurangi potensi noise. Selain itu, metode Interquartile Range (IQR) digunakan untuk mengidentifikasi dan menghapus outlier pada fitur numerik, guna memastikan kualitas data yang lebih konsisten dan menghindari distorsi dalam hasil analisis.
-2. Data Splitting:  Dataset dibagi menjadi dua bagian, yaitu data latih (training set) dan data uji (test set), dengan proporsi 80:20 menggunakan fungsi train_test_split. Fitur independen yang digunakan meliputi mental_health_rating, sleep_hours, dan diet_quality_encoded, sedangkan variabel dependen adalah exam_score. Pemisahan ini bertujuan untuk melatih model pada data latih dan menguji performanya secara objektif pada data yang belum pernah dilihat sebelumnya. Nilai random_state=42 digunakan untuk memastikan reprodusibilitas hasil.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+2. Data Transformation: Dilakukan binning terhadap atribut study_hours_per_day menjadi beberapa kategori diskrit yang lebih mudah dianalisis. Berikut enam kategori berbeda yang terdapat dalam binning:
+  - 0: Siswa yang tidak belajar sama sekali (0 jam). Batas bawah -0.1 dipilih untuk memastikan nilai 0 termasuk dalam kategori ini.
+  - <=1: Siswa yang belajar kurang dari atau sama dengan 1 jam per hari (interval 0–1 jam).
+  - 1–3: Siswa yang belajar antara 1 hingga 3 jam per hari.
+  - 3–5: Siswa yang belajar antara 3 hingga 5 jam per hari.
+  - 5–8: Siswa yang belajar antara 5 hingga 8 jam per hari.
+  - >8: Siswa yang belajar lebih dari 8 jam per hari (interval 8–12 jam).
+3. Data Splitting:  Dataset dibagi menjadi dua bagian, yaitu data latih (training set) dan data uji (test set), dengan proporsi 80:20 menggunakan fungsi train_test_split. Fitur independen yang digunakan meliputi mental_health_rating, sleep_hours, dan diet_quality_encoded, sedangkan variabel dependen adalah exam_score. Pemisahan ini bertujuan untuk melatih model pada data latih dan menguji performanya secara objektif pada data yang belum pernah dilihat sebelumnya. Nilai random_state=42 digunakan untuk memastikan reprodusibilitas hasil.
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
@@ -126,12 +140,6 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 | Decision Tree           | 7.4712 | 92.2860 | 9.6066 | 0.6433 |
 | Linear Regression       | 5.3687 | 43.6309 | 6.6054 | 0.8314 |
 
-### Hasil Evaluasi Hyperparameter Tuning:
-                      MAE      MSE    RMSE      R2
-Linear Regression  5.3015  44.7317  6.6797  0.8371
-Random Forest      5.7445  51.7849  7.1772  0.8124
-Decision Tree      6.8242  71.7488  8.4535  0.7400
-
 ### Insight:
 - Linear Regression mencatat performa terbaik dengan R² 0.8314, mengindikasikan kemampuannya menjelaskan 83.14% variasi data target. Nilai MAE 5.3687 dan RMSE 6.6054 menunjukkan konsistensi prediksi yang tinggi, dengan 68% hasil prediksi diperkirakan berada dalam rentang ±6.6 unit dari nilai aktual. Pencapaian ini menguatkan asumsi bahwa hubungan antara fitur dan target bersifat linear pada dataset ini. 
 - Random Forest menyusul di posisi kedua dengan R² 0.8074, menawarkan fleksibilitas dalam menangani pola non-linear, meski memerlukan sumber daya komputasi lebih besar.
@@ -141,3 +149,18 @@ Decision Tree      6.8242  71.7488  8.4535  0.7400
 - Linear Regression direkomendasikan sebagai solusi utama untuk implementasi produksi, khususnya jika interpretasi model menjadi pertimbangan penting. Optimasi tambahan dengan transformasi Box-Cox pada variabel target dapat meningkatkan stabilitas prediksi terhadap outlier.
 - Untuk skenario dengan kompleksitas data tinggi, Random Forest yang telah di-tuning hyperparameter-nya (n_estimators=200, max_depth=15) mampu menjadi alternatif andal dengan potensi peningkatan akurasi 3-5%.
 - Decision Tree sebaiknya dikembangkan dalam framework ensemble seperti Gradient Boosting untuk mengatasi kelemahan akurasinya. Pemantauan berkala terhadap rasio RMSE/MAE diperlukan untuk mendeteksi dini masalah outlier atau konsep drift pada data baru.
+
+### Hasil Evaluasi Hyperparameter Tuning:
+| Model              | MAE     | MSE     | RMSE    | R2      |
+|--------------------|---------|---------|---------|---------|
+| Linear Regression  | 5.3015  | 44.7317 | 6.6797  | 0.8371  |
+| Random Forest      | 5.7445  | 51.7849 | 7.1772  | 0.8124  |
+| Decision Tree      | 6.8242  | 71.7488 | 8.4535  | 0.7400  |
+
+### Kesimpulan:
+- Pada model Linear Regression, tuning tidak memberikan peningkatan yang signifikan. Sebelum tuning, model ini memiliki MAE sebesar 5.3687, MSE 43.6309, RMSE 6.6054, dan R² 0.8314, sedangkan setelah tuning, metriknya hanya sedikit berubah menjadi MAE 5.3015, MSE 44.7317, RMSE 6.6797, dan R² 0.8371. Hal ini menunjukkan bah
+- Random Forest menunjukkan sedikit perbaikan setelah tuning. Sebelum tuning, metriknya adalah MAE 5.7728, MSE 50.8986, RMSE 7.1301, dan R² 0.8035. Setelah tuning, MAE sedikit menurun menjadi 5.7445, MSE meningkat tipis menjadi 51.7849, RMSE naik menjadi 7.1772, dan R² turun sedikit menjadi 0.8124. Meskipun tidak ada peningkatan yang besar, tuning membantu menjaga konsistensi performa.
+- Decision Tree justru mengalami penurunan performa setelah tuning. Sebelum tuning, model ini memiliki MAE 7.4712, MSE 92.2860, RMSE 9.6066, dan R² 0.6433. Namun, setelah tuning, MAE turun menjadi 6.8242, MSE membaik menjadi 71.7488, RMSE turun menjadi 8.4535, dan R² meningkat menjadi 0.7400. Ini menunjukkan bahwa tuning berhasil meningkatkan performa Decision Tree secara signifikan, mengurangi error dan meningkatkan akurasi prediksi.
+- Secara keseluruhan, tuning efektif untuk model yang kompleks seperti Decision Tree, tetapi kurang berdampak pada model sederhana seperti Linear Regression. Random Forest menunjukkan hasil yang stabil, meskipun tidak ada peningkatan besar. Pemilihan teknik tuning dan parameter yang tepat sangat berpengaruh pada hasil akhir, terutama untuk model yang rentan terhadap overfitting seperti Decision Tree.
+- Dapat disimpulkan bahwa beberapa faktor mempengaruhi terhadap tingkat prestasi siswa. Terutama waktu belajar yang menjadi faktor paling utama, di mana siswa yang belajar sekitar 5-8 jam per hari memiliki nilai ujian tertinggi sekitar 90,37. Selain itu, kesehatan mental juga menunjukkan pengaruh yang cukup signifikan, dengan peningkatan rating kesehatan mental dari 1 hingga 10 berbanding lurus dengan kenaikan nilai ujian dari 62,76 menjadi 77,73. Faktor pendukung lain seperti durasi tidur menunjukkan pola optimal pada 7-8 jam tidur dengan nilai rata-rata 71,41, sementara tidur kurang dari 5 jam menghasilkan nilai terendah (63,45). Frekuensi olahraga, meskipun menunjukkan tren positif dengan nilai tertinggi pada 6 kali olahraga per minggu (74,40), tidak memberikan pengaruh sekuat faktor lainnya. Mengisyaratkan bahwa olahraga atau pun aktivitas fisik tidak berpengaruh secara langsung terhadap performa akademik.
+
