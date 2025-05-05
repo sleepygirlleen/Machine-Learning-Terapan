@@ -60,9 +60,8 @@ Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubu
 
 ## Data Preparation
 ### Tahapan:
-1. Data Cleaning
-2. Data Transformation
-3. Data Splitting
+1. Data Cleaning: Beberapa fitur yang kurang relevan atau tidak berkontribusi secara signifikan terhadap fokus analisis, seperti student_id, social_media_hours, netflix_hours, part_time_job, parental_education_level, extracurricular_participation, internet_quality, dan diet_quality, telah dihapus dari dataset untuk menyederhanakan pemodelan dan mengurangi potensi noise. Selain itu, metode Interquartile Range (IQR) digunakan untuk mengidentifikasi dan menghapus outlier pada fitur numerik, guna memastikan kualitas data yang lebih konsisten dan menghindari distorsi dalam hasil analisis.
+2. Data Splitting:  Dataset dibagi menjadi dua bagian, yaitu data latih (training set) dan data uji (test set), dengan proporsi 80:20 menggunakan fungsi train_test_split. Fitur independen yang digunakan meliputi mental_health_rating, sleep_hours, dan diet_quality_encoded, sedangkan variabel dependen adalah exam_score. Pemisahan ini bertujuan untuk melatih model pada data latih dan menguji performanya secara objektif pada data yang belum pernah dilihat sebelumnya. Nilai random_state=42 digunakan untuk memastikan reprodusibilitas hasil.
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Menjelaskan proses data preparation yang dilakukan
@@ -109,10 +108,15 @@ Referensi:
 ### Metrik Evaluasi:
 Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 - MAE: Mean Absolute Error (MAE) adalah metrik yang mengukur rata-rata antara nilai asli dan nilai prediksi. MAE tidak mengkuadratkan selisih, sehingga lebih robust terhadap outlier. MAE menghitung selisih absolut antara nilai aktual dan prediksi, lalu dirata-ratakan. Nilai MAE yang lebih kecil menunjukkan model yang lebih akurat.
+  
 ![image](https://github.com/user-attachments/assets/1bca2376-11f8-4306-8afe-8be1e2eabc63)
+
 - RMSE: Root Mean Square Error (RMSE) merupakan akar kuadrat dari MSE. RMSE sering digunakan karena memiliki satuan yang sama dengan data asli, sehingga lebih mudah diinterpretasikan. RMSE mengkuadratkan selisih untuk memperbesar pengaruh error besar, menghitung rata-rata, lalu diakarkan. RMSE sering digunakan karena memiliki satuan yang sama dengan data asli.
+
 ![image](https://github.com/user-attachments/assets/eb06711a-c807-4229-b135-4a6ad98d5a8c)
+
 - R² Score: R² Score atau yang biasa dikenal sebagai koefisien determinasi adalah model evaluasi statistik yang menilai model regresi. Ukuran prediksi ini membantu analis data untuk menjelaskan performa dari model kinerja.R² membandingkan error model dengan error rata-rata. Jika model sama buruknya dengan rata-rata, maka R² = 0; jika model sempurna, maka R² = 1; dan jika lebih buruk dari rata-rata, maka R² < 0.
+
 ![image](https://github.com/user-attachments/assets/64151105-07bd-4d62-b2d4-bb662921cf51)
 
 ### Hasil Evaluasi:
@@ -122,3 +126,12 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 | Decision Tree           | 7.3959 | 9.4541 | 0.6546 |
 | Linear Regression       | 5.3687 | 6.6054 | 0.8314 |
 
+### Insight:
+- Model Linear Regression menunjukkan performa terbaik dengan nilai MAE sebesar 5.3687, RMSE sebesar 6.6054, dan R² sebesar 0.8314. Hal ini menunjukkan bahwa model ini memiliki kesalahan prediksi paling rendah dan mampu menjelaskan sekitar 83% variasi dalam data target. Ini menandakan bahwa hubungan antara fitur dan variabel target pada dataset ini bersifat cukup linear.
+- Random Forest Regressor memberikan hasil yang kompetitif dengan MAE sebesar 5.7304, RMSE 7.0598, dan R² 0.8074. Meskipun performanya sedikit di bawah Linear Regression, model ini tetap menunjukkan kemampuan prediktif yang baik. Random Forest juga dikenal memiliki keunggulan dalam menangani data non-linear dan mengurangi risiko overfitting dibandingkan dengan model pohon keputusan tunggal.
+- Decision Tree menghasilkan performa paling rendah, dengan MAE sebesar 7.3959, RMSE sebesar 9.4541, dan R² hanya 0.6546. Ini menunjukkan bahwa model ini memiliki tingkat error prediksi yang paling tinggi dan kurang mampu menjelaskan variabilitas data secara keseluruhan.
+
+### Rekomendasi
+- Linear Regression direkomendasikan sebagai model utama karena memberikan hasil paling akurat dan interpretasi yang sederhana, terutama jika hubungan antar variabel bersifat linier.
+- Random Forest Regressor dapat dijadikan alternatif kuat jika dihadapkan pada data yang lebih kompleks, tidak linier, atau jika ingin mengejar model yang lebih robust terhadap outlier.
+- Decision Tree sebaiknya dihindari sebagai model tunggal karena performanya yang jauh lebih rendah, namun masih dapat dipertimbangkan dalam bentuk ensemble learning seperti Random Forest atau Gradient Boosting untuk meningkatkan akurasi.
