@@ -57,16 +57,24 @@ Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubu
 
 ### Exploratory Data Analysis
 #### Mental Health Rating
+
 ![image](https://github.com/user-attachments/assets/ef905ea9-4e30-4499-b980-ec942d60756c)
+
 Terlihat tren positif yang jelas antara peningkatan mental health rating dengan peningkatan nilai ujian. Semakin tinggi rating kesehatan mental (dari 1 hingga 10), semakin tinggi pula nilai ujian (dari ~62.76 hingga ~77.73). Hal ini menunjukkan bahwa kesehatan mental yang baik mungkin berkontribusi terhadap performa akademik yang lebih baik.
 #### Durasi Tidur
+
 ![image](https://github.com/user-attachments/assets/c9aab104-0633-4515-b7c9-0d0bb2b9b9d1)
+
 Nilai ujian tertinggi ditemukan pada kelompok dengan durasi tidur 7-8 jam (~71.41), diikuti oleh kelompok 9+ jam (~69.86) dan 5-6 jam (~68.76). Kelompok dengan tidur kurang dari 5 jam memiliki nilai terendah (~63.45). Pola ini menunjukkan bahwa tidur yang cukup (7-8 jam) berhubungan dengan performa akademik optimal, sementara tidur terlalu sedikit atau terlalu banyak mungkin kurang ideal.
 #### Waktu Belajar
+
 ![image](https://github.com/user-attachments/assets/29e727b7-d244-47a1-90a5-c6591ea30437)
+
 Terdapat korelasi positif yang kuat antara peningkatan waktu belajar dan nilai ujian. Kelompok yang belajar 5-8 jam memiliki nilai tertinggi (~90.37), sementara yang belajar kurang dari 1 jam memiliki nilai terendah (~40.81-41.03). Namun, data untuk kelompok belajar lebih dari 8 jam tidak tersedia (Null), sehingga tidak dapat dianalisis lebih lanjut.
 #### Frekuensi Olahraga
+
 ![image](https://github.com/user-attachments/assets/e5f13170-d403-4bdd-af49-2d08d2023bff)
+
 Meskipun tidak sekuat faktor lainnya, terdapat sedikit tren positif antara frekuensi olahraga dan nilai ujian. Nilai tertinggi ditemukan pada kelompok yang berolahraga 6 kali seminggu (~74.40), sementara yang tidak berolahraga (0 kali) memiliki nilai lebih rendah (~66.38). Namun, pola ini tidak sepenuhnya konsisten, menunjukkan bahwa olahraga mungkin bukan faktor dominan.
 
 ## Data Preparation
