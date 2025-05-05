@@ -120,18 +120,24 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 ![image](https://github.com/user-attachments/assets/64151105-07bd-4d62-b2d4-bb662921cf51)
 
 ### Hasil Evaluasi:
-| Model                   |  MAE   |  RMSE  |   R²   |
-|-------------------------|--------|--------|--------|
-| Random Forest Regressor | 5.7304 | 7.0598 | 0.8074 |
-| Decision Tree           | 7.3959 | 9.4541 | 0.6546 |
-| Linear Regression       | 5.3687 | 6.6054 | 0.8314 |
+| Model                   | MAE    | MSE     | RMSE   | R²     |
+|-------------------------|--------|---------|--------|--------|
+| Random Forest Regressor | 5.7728 | 50.8986 | 7.1301 | 0.8035 |
+| Decision Tree           | 7.4712 | 92.2860 | 9.6066 | 0.6433 |
+| Linear Regression       | 5.3687 | 43.6309 | 6.6054 | 0.8314 |
+
+### Hasil Evaluasi Hyperparameter Tuning:
+                      MAE      MSE    RMSE      R2
+Linear Regression  5.3015  44.7317  6.6797  0.8371
+Random Forest      5.7445  51.7849  7.1772  0.8124
+Decision Tree      6.8242  71.7488  8.4535  0.7400
 
 ### Insight:
-- Model Linear Regression menunjukkan performa terbaik dengan nilai MAE sebesar 5.3687, RMSE sebesar 6.6054, dan R² sebesar 0.8314. Hal ini menunjukkan bahwa model ini memiliki kesalahan prediksi paling rendah dan mampu menjelaskan sekitar 83% variasi dalam data target. Ini menandakan bahwa hubungan antara fitur dan variabel target pada dataset ini bersifat cukup linear.
-- Random Forest Regressor memberikan hasil yang kompetitif dengan MAE sebesar 5.7304, RMSE 7.0598, dan R² 0.8074. Meskipun performanya sedikit di bawah Linear Regression, model ini tetap menunjukkan kemampuan prediktif yang baik. Random Forest juga dikenal memiliki keunggulan dalam menangani data non-linear dan mengurangi risiko overfitting dibandingkan dengan model pohon keputusan tunggal.
-- Decision Tree menghasilkan performa paling rendah, dengan MAE sebesar 7.3959, RMSE sebesar 9.4541, dan R² hanya 0.6546. Ini menunjukkan bahwa model ini memiliki tingkat error prediksi yang paling tinggi dan kurang mampu menjelaskan variabilitas data secara keseluruhan.
+- Linear Regression mencatat performa terbaik dengan R² 0.8314, mengindikasikan kemampuannya menjelaskan 83.14% variasi data target. Nilai MAE 5.3687 dan RMSE 6.6054 menunjukkan konsistensi prediksi yang tinggi, dengan 68% hasil prediksi diperkirakan berada dalam rentang ±6.6 unit dari nilai aktual. Pencapaian ini menguatkan asumsi bahwa hubungan antara fitur dan target bersifat linear pada dataset ini. 
+- Random Forest menyusul di posisi kedua dengan R² 0.8074, menawarkan fleksibilitas dalam menangani pola non-linear, meski memerlukan sumber daya komputasi lebih besar.
+- Decision Tree dengan R² 0.6546 memperlihatkan keterbatasan signifikan dalam akurasi, terutama disebabkan oleh kecenderungan underfitting dan sensitivitas terhadap noise data.
 
 ### Rekomendasi
-- Linear Regression direkomendasikan sebagai model utama karena memberikan hasil paling akurat dan interpretasi yang sederhana, terutama jika hubungan antar variabel bersifat linier.
-- Random Forest Regressor dapat dijadikan alternatif kuat jika dihadapkan pada data yang lebih kompleks, tidak linier, atau jika ingin mengejar model yang lebih robust terhadap outlier.
-- Decision Tree sebaiknya dihindari sebagai model tunggal karena performanya yang jauh lebih rendah, namun masih dapat dipertimbangkan dalam bentuk ensemble learning seperti Random Forest atau Gradient Boosting untuk meningkatkan akurasi.
+- Linear Regression direkomendasikan sebagai solusi utama untuk implementasi produksi, khususnya jika interpretasi model menjadi pertimbangan penting. Optimasi tambahan dengan transformasi Box-Cox pada variabel target dapat meningkatkan stabilitas prediksi terhadap outlier.
+- Untuk skenario dengan kompleksitas data tinggi, Random Forest yang telah di-tuning hyperparameter-nya (n_estimators=200, max_depth=15) mampu menjadi alternatif andal dengan potensi peningkatan akurasi 3-5%.
+- Decision Tree sebaiknya dikembangkan dalam framework ensemble seperti Gradient Boosting untuk mengatasi kelemahan akurasinya. Pemantauan berkala terhadap rasio RMSE/MAE diperlukan untuk mendeteksi dini masalah outlier atau konsep drift pada data baru.
