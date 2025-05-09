@@ -12,12 +12,6 @@ Selain itu, faktor kesehatan mental dapat mempengaruhi performa siswa dalam bida
 
 Untuk mengatasi permasalahan tersebut, penelitian ini akan  menganalisis dan memprediksi hubungan antara kualitas tidur, konsumsi makanan, aktivitas fisik, serta kesehatan mental terhadap prestasi akademik siswa. Diharapkan hasil penelitian ini dapat memberikan kontribusi dalam meningkatkan kualitas pendidikan melalui penerapan gaya hidup sehat dan memperhatikan kesehatan mental siswa. 
 
-Referensi:
-Brandy, J. M., Penckofer, S., Solari-Twadell, P. A., & Velsor-Friedrich, B. (2015). Factors predictive of depression
-in first-year college students. Journal of Psychosocial Nursing and Mental Health Services, 53(2), 38-44.
-Reuter, P. R., & Forster, B. L. (2021). Student health behavior and academic performance. PeerJ, 9, e11107.
-Wyatt, T. J., Oswalt, S. B., & Ochoa, Y. (2017). Mental Health and Academic Performance of First-Year College Students. International Journal of Higher Education, 6(3), 178-187.
-
 ## Business Understanding
 
 ### Problem Statements
@@ -35,7 +29,7 @@ Menjelaskan pernyataan masalah latar belakang:
 - Melakukan teknik hyperparameter tuning untuk meningkatkan performa model
 
 ## Data Understanding
-Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubungan antara kebiasaan gaya hidup dan kinerja akademik siswa. Terdapat sejumlah 1000 data dan 15 fitur lebih di dalamnya. Dataset ini sangat cocok untuk proyek ML, analisis regresi, pengelompokan, dan data yang dibuat dengan menggunakan pola untuk praktik pendidikan. Berikut di bawah ini merupakan link dataset yang digunakan untuk penelitian: https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance/data
+Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubungan antara kebiasaan gaya hidup dan kinerja akademik siswa. Terdapat sejumlah 1000 data dan 16 fitur lebih di dalamnya. Dataset ini sangat cocok untuk proyek ML, analisis regresi, pengelompokan, dan data yang dibuat dengan menggunakan pola untuk praktik pendidikan. Berikut di bawah ini merupakan link dataset yang digunakan untuk penelitian: https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance/data
 
 ### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
 - student_id: ID dari siswa.
@@ -112,20 +106,6 @@ Regresi Linier adalah algoritma pembelajaran mesin yang didasarkan pada pembelaj
 - n_jobs=-1: Menentukan jumlah job (proses paralel) yang digunakan untuk komputasi. Nilai default-nya adalah None, yang berarti menggunakan semua core prosesor yang tersedia.
 - positive=True: Menentukan apakah koefisien harus dibatasi menjadi positif. Nilai default-nya adalah False.
 
-Referensi:
-- Azmi, A., Azel, F., & Voutama, A. (2023). Prediksi Churn Nasabah Bank Menggunakan Klasifikasi Random Forest dan Decision Tree dengan Evaluasi Confusion Matrix. Jurnal Ilmiah Komputer dan Informatika (KOMPUTA), Universitas Singaperbangsa Karawang. https://doi.org/10.37676/komputa.v11i3.12639
-- Guliyev, H., & Yerdelen Tatoğlu, F. (2021). Customer churn analysis in banking sector: Evidence from explainable machine learning model. Journal of Applied Microeconometrics, 1(2).
-- Namira, N., Slamet, I., & Susanto, I. (2024). Prediksi Nasabah Churn dengan Algoritma Decision Tree, Random Forest, dan Support Vector Machine. Proceedings of ESCAF 3rd 2024, Universitas Bina Insan Lubuklinggau.
-- GeeksforGeeks. (2024). What are the advantages and disadvantages of Random Forest? https://www.geeksforgeeks.org/what-are-the-advantages-and-disadvantages-of-random-forest/
-- GeeksforGeeks. (2023). Decision Tree. https://www.geeksforgeeks.org/decision-tree/
-- GeeksforGeeks. (2023, March 30). ML - advantages and disadvantages of linear regression. https://www.geeksforgeeks.org/ml-advantages-and-disadvantages-of-linear-regression/ 
-
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
-
 ## Evaluation
 ### Metrik Evaluasi:
 Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
@@ -171,4 +151,16 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 - Decision Tree justru mengalami penurunan performa setelah tuning. Sebelum tuning, model ini memiliki MAE 7.4712, MSE 92.2860, RMSE 9.6066, dan R² 0.6433. Namun, setelah tuning, MAE turun menjadi 6.8242, MSE membaik menjadi 71.7488, RMSE turun menjadi 8.4535, dan R² meningkat menjadi 0.7400. Ini menunjukkan bahwa tuning berhasil meningkatkan performa Decision Tree secara signifikan, mengurangi error dan meningkatkan akurasi prediksi.
 - Secara keseluruhan, tuning efektif untuk model yang kompleks seperti Decision Tree, tetapi kurang berdampak pada model sederhana seperti Linear Regression. Random Forest menunjukkan hasil yang stabil, meskipun tidak ada peningkatan besar. Pemilihan teknik tuning dan parameter yang tepat sangat berpengaruh pada hasil akhir, terutama untuk model yang rentan terhadap overfitting seperti Decision Tree.
 - Dapat disimpulkan bahwa beberapa faktor mempengaruhi terhadap tingkat prestasi siswa. Terutama waktu belajar yang menjadi faktor paling utama, di mana siswa yang belajar sekitar 5-8 jam per hari memiliki nilai ujian tertinggi sekitar 90,37. Selain itu, kesehatan mental juga menunjukkan pengaruh yang cukup signifikan, dengan peningkatan rating kesehatan mental dari 1 hingga 10 berbanding lurus dengan kenaikan nilai ujian dari 62,76 menjadi 77,73. Faktor pendukung lain seperti durasi tidur menunjukkan pola optimal pada 7-8 jam tidur dengan nilai rata-rata 71,41, sementara tidur kurang dari 5 jam menghasilkan nilai terendah (63,45). Frekuensi olahraga, meskipun menunjukkan tren positif dengan nilai tertinggi pada 6 kali olahraga per minggu (74,40), tidak memberikan pengaruh sekuat faktor lainnya. Mengisyaratkan bahwa olahraga atau pun aktivitas fisik tidak berpengaruh secara langsung terhadap performa akademik.
+
+Referensi:
+Brandy, J. M., Penckofer, S., Solari-Twadell, P. A., & Velsor-Friedrich, B. (2015). Factors predictive of depression
+in first-year college students. Journal of Psychosocial Nursing and Mental Health Services, 53(2), 38-44.
+Reuter, P. R., & Forster, B. L. (2021). Student health behavior and academic performance. PeerJ, 9, e11107.
+Wyatt, T. J., Oswalt, S. B., & Ochoa, Y. (2017). Mental Health and Academic Performance of First-Year College Students. International Journal of Higher Education, 6(3), 178-187.
+- Azmi, A., Azel, F., & Voutama, A. (2023). Prediksi Churn Nasabah Bank Menggunakan Klasifikasi Random Forest dan Decision Tree dengan Evaluasi Confusion Matrix. Jurnal Ilmiah Komputer dan Informatika (KOMPUTA), Universitas Singaperbangsa Karawang. https://doi.org/10.37676/komputa.v11i3.12639
+- Guliyev, H., & Yerdelen Tatoğlu, F. (2021). Customer churn analysis in banking sector: Evidence from explainable machine learning model. Journal of Applied Microeconometrics, 1(2).
+- Namira, N., Slamet, I., & Susanto, I. (2024). Prediksi Nasabah Churn dengan Algoritma Decision Tree, Random Forest, dan Support Vector Machine. Proceedings of ESCAF 3rd 2024, Universitas Bina Insan Lubuklinggau.
+- GeeksforGeeks. (2024). What are the advantages and disadvantages of Random Forest? https://www.geeksforgeeks.org/what-are-the-advantages-and-disadvantages-of-random-forest/
+- GeeksforGeeks. (2023). Decision Tree. https://www.geeksforgeeks.org/decision-tree/
+- GeeksforGeeks. (2023, March 30). ML - advantages and disadvantages of linear regression. https://www.geeksforgeeks.org/ml-advantages-and-disadvantages-of-linear-regression/ 
 
