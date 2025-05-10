@@ -31,7 +31,7 @@ Menjelaskan pernyataan masalah latar belakang:
 ## Data Understanding
 Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubungan antara kebiasaan gaya hidup dan kinerja akademik siswa. Terdapat sejumlah 1000 data dan 16 fitur lebih di dalamnya. Dataset ini sangat cocok untuk proyek ML, analisis regresi, pengelompokan, dan data yang dibuat dengan menggunakan pola untuk praktik pendidikan. Berikut di bawah ini merupakan link dataset yang digunakan untuk penelitian: https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance/data
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
+**Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:**
 - student_id: ID dari siswa.
 - age:  Usia siswa dalam tahun.
 - gender: Jenis kelamin dari siswa.
@@ -48,6 +48,9 @@ Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubu
 - mental_health_rating: Penilaian kesehatan mental siswa pada skala tertentu.
 - extracurricular_participation: Apakah siswa berpartisipasi dalam kegiatan ekstrakurikuler (Yes atau No).
 - exam_score: Skor ujian akhir siswa.
+
+**Kondisi Data:**
+
 
 ### Exploratory Data Analysis
 #### Mental Health Rating
