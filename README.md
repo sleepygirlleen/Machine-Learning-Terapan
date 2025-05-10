@@ -80,7 +80,7 @@ Meskipun tidak sekuat faktor lainnya, terdapat sedikit tren positif antara freku
   - 1–3: Siswa yang belajar antara 1 hingga 3 jam per hari.
   - 3–5: Siswa yang belajar antara 3 hingga 5 jam per hari.
   - 5–8: Siswa yang belajar antara 5 hingga 8 jam per hari.
-  - >8: Siswa yang belajar lebih dari 8 jam per hari (interval 8–12 jam).
+  - Lebih dari 8: Siswa yang belajar lebih dari 8 jam per hari (interval 8–12 jam).
 3. Data Splitting:  Dataset dibagi menjadi dua bagian, yaitu data latih (training set) dan data uji (test set), dengan proporsi 80:20 menggunakan fungsi train_test_split. Fitur independen yang digunakan meliputi mental_health_rating, sleep_hours, dan diet_quality_encoded, sedangkan variabel dependen adalah exam_score. Pemisahan ini bertujuan untuk melatih model pada data latih dan menguji performanya secara objektif pada data yang belum pernah dilihat sebelumnya. Nilai random_state=42 digunakan untuk memastikan reprodusibilitas hasil.
 
 ## Modeling
@@ -152,7 +152,7 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 - Secara keseluruhan, tuning efektif untuk model yang kompleks seperti Decision Tree, tetapi kurang berdampak pada model sederhana seperti Linear Regression. Random Forest menunjukkan hasil yang stabil, meskipun tidak ada peningkatan besar. Pemilihan teknik tuning dan parameter yang tepat sangat berpengaruh pada hasil akhir, terutama untuk model yang rentan terhadap overfitting seperti Decision Tree.
 - Dapat disimpulkan bahwa beberapa faktor mempengaruhi terhadap tingkat prestasi siswa. Terutama waktu belajar yang menjadi faktor paling utama, di mana siswa yang belajar sekitar 5-8 jam per hari memiliki nilai ujian tertinggi sekitar 90,37. Selain itu, kesehatan mental juga menunjukkan pengaruh yang cukup signifikan, dengan peningkatan rating kesehatan mental dari 1 hingga 10 berbanding lurus dengan kenaikan nilai ujian dari 62,76 menjadi 77,73. Faktor pendukung lain seperti durasi tidur menunjukkan pola optimal pada 7-8 jam tidur dengan nilai rata-rata 71,41, sementara tidur kurang dari 5 jam menghasilkan nilai terendah (63,45). Frekuensi olahraga, meskipun menunjukkan tren positif dengan nilai tertinggi pada 6 kali olahraga per minggu (74,40), tidak memberikan pengaruh sekuat faktor lainnya. Mengisyaratkan bahwa olahraga atau pun aktivitas fisik tidak berpengaruh secara langsung terhadap performa akademik.
 
-Referensi:
+# Referensi:
 Brandy, J. M., Penckofer, S., Solari-Twadell, P. A., & Velsor-Friedrich, B. (2015). Factors predictive of depression
 in first-year college students. Journal of Psychosocial Nursing and Mental Health Services, 53(2), 38-44.
 Reuter, P. R., & Forster, B. L. (2021). Student health behavior and academic performance. PeerJ, 9, e11107.
