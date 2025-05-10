@@ -113,6 +113,10 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
   
 ![image](https://github.com/user-attachments/assets/1bca2376-11f8-4306-8afe-8be1e2eabc63)
 
+- MSE: Mean Squared Error (MSE) adalah metrik yang mengukur rata-rata kuadrat selisih antara nilai aktual dan nilai prediksi. Selisih tersebut kemudian dikuadratkan, dijumlahkan dan diambil rata-rata dari semua sampel data. Semakin kecil nilai MSE maka akan semakin baik model dalam melakukan prediksi yang akurat.
+
+![image](https://github.com/user-attachments/assets/310bb80a-f22d-4e0f-a9b5-e8b72f1500b0)
+
 - RMSE: Root Mean Square Error (RMSE) merupakan akar kuadrat dari MSE. RMSE sering digunakan karena memiliki satuan yang sama dengan data asli, sehingga lebih mudah diinterpretasikan. RMSE mengkuadratkan selisih untuk memperbesar pengaruh error besar, menghitung rata-rata, lalu diakarkan. RMSE sering digunakan karena memiliki satuan yang sama dengan data asli.
 
 ![image](https://github.com/user-attachments/assets/eb06711a-c807-4229-b135-4a6ad98d5a8c)
@@ -124,8 +128,8 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 ### Hasil Evaluasi:
 | Model                   | MAE    | MSE     | RMSE   | R²     |
 |-------------------------|--------|---------|--------|--------|
-| Random Forest Regressor | 5.7728 | 50.8986 | 7.1301 | 0.8035 |
-| Decision Tree           | 7.4712 | 92.2860 | 9.6066 | 0.6433 |
+| Random Forest Regressor | 5.7291 | 49.7739 | 7.0551 | 0.8076 |
+| Decision Tree           | 7.4388 | 89.9373 | 9.4835 | 0.6524 |
 | Linear Regression       | 5.3687 | 43.6309 | 6.6054 | 0.8314 |
 
 ### Insight:
@@ -138,6 +142,20 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 - Untuk skenario dengan kompleksitas data tinggi, Random Forest yang telah di-tuning hyperparameter-nya (n_estimators=200, max_depth=15) mampu menjadi alternatif andal dengan potensi peningkatan akurasi 3-5%.
 - Decision Tree sebaiknya dikembangkan dalam framework ensemble seperti Gradient Boosting untuk mengatasi kelemahan akurasinya. Pemantauan berkala terhadap rasio RMSE/MAE diperlukan untuk mendeteksi dini masalah outlier atau konsep drift pada data baru.
 
+## Hyperparameter Tuning
+### Parameter
+**Random Forest**
+-  'n_estimators': [100, 200] Membangun model dengan menggunakan 100 dan 200 pohon
+-  'max_depth': [10, 15, None] Membatasi maksimum kedalaman pohon menjadi 10, 15, None (Tidak dibatasi)
+-  'min_samples_leaf': [1, 3] Minimum jumlah data di pohon
+**Decision Tree**
+- 'max_depth': [5, 8, 10]  Membatasi maksimum kedalaman pohon menjadi 5, 8, dan 10
+- 'min_samples_split': [5, 10] Minimum sampel yang dibutuhkan untuk membagi simpul menjadi dua cabang
+- 'ccp_alpha': [0, 0.01] Memangkas cabang pohon yang tidak memberi peningkatan signifikan pada performa
+**Linear Regression**
+-  'fit_intercept': [True, False] Menentukan  perhitungan intersep (bias) atau tidak
+-  'positive': [True, False] Menentukan koefisien regresi hanya positive saja
+  
 ### Hasil Evaluasi Hyperparameter Tuning:
 | Model              | MAE     | MSE     | RMSE    | R2      |
 |--------------------|---------|---------|---------|---------|
@@ -153,10 +171,9 @@ Berikut merupakan ukuran metrik evaluasi yang digunakan (Navlani & Idris, 2021):
 - Dapat disimpulkan bahwa beberapa faktor mempengaruhi terhadap tingkat prestasi siswa. Terutama waktu belajar yang menjadi faktor paling utama, di mana siswa yang belajar sekitar 5-8 jam per hari memiliki nilai ujian tertinggi sekitar 90,37. Selain itu, kesehatan mental juga menunjukkan pengaruh yang cukup signifikan, dengan peningkatan rating kesehatan mental dari 1 hingga 10 berbanding lurus dengan kenaikan nilai ujian dari 62,76 menjadi 77,73. Faktor pendukung lain seperti durasi tidur menunjukkan pola optimal pada 7-8 jam tidur dengan nilai rata-rata 71,41, sementara tidur kurang dari 5 jam menghasilkan nilai terendah (63,45). Frekuensi olahraga, meskipun menunjukkan tren positif dengan nilai tertinggi pada 6 kali olahraga per minggu (74,40), tidak memberikan pengaruh sekuat faktor lainnya. Mengisyaratkan bahwa olahraga atau pun aktivitas fisik tidak berpengaruh secara langsung terhadap performa akademik.
 
 # Referensi:
-Brandy, J. M., Penckofer, S., Solari-Twadell, P. A., & Velsor-Friedrich, B. (2015). Factors predictive of depression
-in first-year college students. Journal of Psychosocial Nursing and Mental Health Services, 53(2), 38-44.
-Reuter, P. R., & Forster, B. L. (2021). Student health behavior and academic performance. PeerJ, 9, e11107.
-Wyatt, T. J., Oswalt, S. B., & Ochoa, Y. (2017). Mental Health and Academic Performance of First-Year College Students. International Journal of Higher Education, 6(3), 178-187.
+- Brandy, J. M., Penckofer, S., Solari-Twadell, P. A., & Velsor-Friedrich, B. (2015). Factors predictive of depression in first-year college students. Journal of Psychosocial Nursing and Mental Health Services, 53(2), 38-44.
+- Reuter, P. R., & Forster, B. L. (2021). Student health behavior and academic performance. PeerJ, 9, e11107.
+- Wyatt, T. J., Oswalt, S. B., & Ochoa, Y. (2017). Mental Health and Academic Performance of First-Year College Students. International Journal of Higher Education, 6(3), 178-187.
 - Azmi, A., Azel, F., & Voutama, A. (2023). Prediksi Churn Nasabah Bank Menggunakan Klasifikasi Random Forest dan Decision Tree dengan Evaluasi Confusion Matrix. Jurnal Ilmiah Komputer dan Informatika (KOMPUTA), Universitas Singaperbangsa Karawang. https://doi.org/10.37676/komputa.v11i3.12639
 - Guliyev, H., & Yerdelen Tatoğlu, F. (2021). Customer churn analysis in banking sector: Evidence from explainable machine learning model. Journal of Applied Microeconometrics, 1(2).
 - Namira, N., Slamet, I., & Susanto, I. (2024). Prediksi Nasabah Churn dengan Algoritma Decision Tree, Random Forest, dan Support Vector Machine. Proceedings of ESCAF 3rd 2024, Universitas Bina Insan Lubuklinggau.
