@@ -51,6 +51,10 @@ Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubu
 
 **Kondisi Data:**
 
+![image](https://github.com/user-attachments/assets/eabcffb6-7423-4248-8073-100f7f6524bf)
+
+![image](https://github.com/user-attachments/assets/093e4b43-ec03-4f91-8c99-ad14cca5030e)
+
 
 ### Exploratory Data Analysis
 #### Mental Health Rating
