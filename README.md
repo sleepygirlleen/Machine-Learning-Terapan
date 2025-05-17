@@ -56,7 +56,7 @@ Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubu
 Dalam kolom parental_education_level terdapat 91 baris data yang hilang
 ![image](https://github.com/user-attachments/assets/093e4b43-ec03-4f91-8c99-ad14cca5030e)
 
-
+Tidak terdapat baris yang duplikat di dalam dataset
 ![image](https://github.com/user-attachments/assets/001a52e1-d754-4a17-9f70-feff792a7c95)
 
 ### Exploratory Data Analysis
