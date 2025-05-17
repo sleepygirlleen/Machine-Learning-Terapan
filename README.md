@@ -53,7 +53,9 @@ Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubu
 
 ![image](https://github.com/user-attachments/assets/eabcffb6-7423-4248-8073-100f7f6524bf)
 
+- Dalam kolom parental_education_level terdapat 91 baris data yang hilang
 ![image](https://github.com/user-attachments/assets/093e4b43-ec03-4f91-8c99-ad14cca5030e)
+
 
 ![image](https://github.com/user-attachments/assets/001a52e1-d754-4a17-9f70-feff792a7c95)
 
