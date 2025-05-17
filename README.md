@@ -88,7 +88,7 @@ Meskipun tidak sekuat faktor lainnya, terdapat sedikit tren positif antara freku
   - 3–5: Siswa yang belajar antara 3 hingga 5 jam per hari.
   - 5–8: Siswa yang belajar antara 5 hingga 8 jam per hari.
   - Lebih dari 8: Siswa yang belajar lebih dari 8 jam per hari (interval 8–12 jam).
-3. Data Splitting:  Dataset dibagi menjadi dua bagian, yaitu data latih (training set) dan data uji (test set), dengan proporsi 80:20 menggunakan fungsi train_test_split. Fitur independen yang digunakan meliputi mental_health_rating, sleep_hours, dan diet_quality_encoded, sedangkan variabel dependen adalah exam_score. Pemisahan ini bertujuan untuk melatih model pada data latih dan menguji performanya secara objektif pada data yang belum pernah dilihat sebelumnya. Nilai random_state=42 digunakan untuk memastikan reprodusibilitas hasil.
+3. Data Splitting:  Dataset dibagi menjadi dua bagian, yaitu data latih (training set) dan data uji (test set), dengan proporsi 80:20 menggunakan fungsi train_test_split. Fitur independen yang digunakan meliputi mental_health_rating, dan sleep_hours, sedangkan variabel dependen adalah exam_score. Pemisahan ini bertujuan untuk melatih model pada data latih dan menguji performanya secara objektif pada data yang belum pernah dilihat sebelumnya. Nilai random_state=42 digunakan untuk memastikan reprodusibilitas hasil.
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
