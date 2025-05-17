@@ -25,7 +25,7 @@ Menjelaskan pernyataan masalah latar belakang:
 - Membangun model machine learning untuk memprediksi hubungan antara gaya hidup dan kesehatan mental terhadap prestasi siswa
 
 ### Solution statements
-- Menggunakan algoritma model regresi, yaitu Random Forest, Decision Tree, dan K-Nearest Neighbors
+- Menggunakan algoritma model regresi, yaitu Random Forest, Decision Tree, dan K-Nearest Neighbors dengan R² > 0.80
 - Melakukan teknik hyperparameter tuning untuk meningkatkan performa model
 
 ## Data Understanding
