@@ -25,8 +25,8 @@ Menjelaskan pernyataan masalah latar belakang:
 - Membangun model machine learning untuk memprediksi hubungan antara gaya hidup dan kesehatan mental terhadap prestasi siswa
 
 ### Solution statements
-- Menggunakan algoritma model regresi, yaitu Random Forest, Decision Tree, dan K-Nearest Neighbors dengan R² > 0.80
-- Melakukan teknik hyperparameter tuning untuk meningkatkan performa model
+- Menggunakan algoritma model regresi, yaitu Random Forest, Decision Tree, dan K-Nearest Neighbors dengan R² ≥  0.80
+- Melakukan teknik hyperparameter tuning untuk meningkatkan performa model dengan R² >  0.80
 
 ## Data Understanding
 Dataset yang digunakan merupakan kumpulan data simulasi yang mengeksplorasi hubungan antara kebiasaan gaya hidup dan kinerja akademik siswa. Terdapat sejumlah 1000 data dan 16 fitur lebih di dalamnya. Dataset ini sangat cocok untuk proyek ML, analisis regresi, pengelompokan, dan data yang dibuat dengan menggunakan pola untuk praktik pendidikan. Berikut di bawah ini merupakan link dataset yang digunakan untuk penelitian: https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance/data
